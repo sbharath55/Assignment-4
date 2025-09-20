@@ -1,0 +1,155 @@
+/* ====== Base / Shared ====== */
+:root {
+    --wrap-w: 960px;
+    --gap: 20px;
+    --grey: #cfcfcf;
+    --border: #bcbcbc;
+  }
+  
+  * { box-sizing: border-box; }
+  
+  body {
+    margin: 0;
+    padding: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+    background: #fff;
+    color: #000;
+  }
+  
+  /* 960px centered container */
+  .wrap { width: var(--wrap-w); margin: 0 auto; }
+  
+  /* grid section */
+  .layout {
+    width: 100%;
+    display: grid;
+    gap: var(--gap);
+    margin: 0 auto 60px;
+  }
+  
+  /* grey boxes used everywhere */
+  .box {
+    background: var(--grey);
+    border: 1px solid var(--border);
+    padding: 8px;
+  }
+  
+  /* small grey “capsule/slab” boxes for logo & nav bars */
+  .slab {
+    background: var(--grey);
+    border: 1px solid var(--border);
+    padding: 8px;
+  }
+  .slab-logo { width: 170px; height: 70px; }
+  .slab-nav  {
+    width: 520px; height: 36px;
+    display: flex; align-items: center; justify-content: center;
+  }
+  
+  /* nav items inside the nav slab */
+  .nav-items {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    font-size: 12px;
+  }
+  
+  /* helpers */
+  .center { display: grid; place-items: center; }
+  .hero-center { display: grid; place-items: center; padding: 24px; }
+  .title-lg { font-size: 48px; line-height: 1.15; margin: 0 0 12px; }
+  .subtitle { font-size: 18px; margin: 0; }
+  
+  /* =========================================================
+     Layout 1
+     ========================================================= */
+  .layout1 {
+    grid-template-columns: 320px 1fr;     /* left logo area, right nav area */
+    grid-template-areas:
+      "logo nav"
+      "hero hero"
+      "p1   p2"
+      "footer footer";
+  }
+  
+  .logo-area { grid-area: logo; }
+  .nav-area  { grid-area: nav; display: flex; justify-content: flex-end; }
+  
+  .layout1 .hero   { grid-area: hero; min-height: 360px; }
+  .layout1 .p1     { grid-area: p1;   min-height: 210px; }
+  .layout1 .p2     { grid-area: p2;   min-height: 210px; }
+  .layout1 .footer { grid-area: footer; min-height: 44px; display: grid; place-items: center; }
+  
+  /* =========================================================
+     Layout 2
+     ========================================================= */
+  .layout2 {
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-areas:
+      "logo . nav"
+      "heading heading heading"
+      "sub sub sub"
+      "g1 g2 g3"
+      "g4 g5 g6"
+      "g7 g8 g9"
+      "footer footer footer";
+  }
+  
+  /* top row */
+  .l2-logo-area { grid-area: logo; }
+  .l2-nav-area  { grid-area: nav; display: flex; justify-content: center; }
+  
+  /* headings */
+  .l2-heading { grid-area: heading; }
+  .l2-sub     { grid-area: sub; }
+  
+  /* gallery tiles (uniform heights) */
+  .layout2 .g1, .layout2 .g2, .layout2 .g3,
+  .layout2 .g4, .layout2 .g5, .layout2 .g6,
+  .layout2 .g7, .layout2 .g8, .layout2 .g9 { min-height: 170px; }
+  
+  .layout2 .g1 { grid-area: g1; } .layout2 .g2 { grid-area: g2; } .layout2 .g3 { grid-area: g3; }
+  .layout2 .g4 { grid-area: g4; } .layout2 .g5 { grid-area: g5; } .layout2 .g6 { grid-area: g6; }
+  .layout2 .g7 { grid-area: g7; } .layout2 .g8 { grid-area: g8; } .layout2 .g9 { grid-area: g9; }
+  
+  .l2-footer { grid-area: footer; min-height: 46px; display: grid; place-items: center; }
+  
+  /* =========================================================
+     Layout 3
+     ========================================================= */
+  .layout3 {
+    grid-template-columns: 260px 1fr 1fr;   /* left narrow col + two wide cols */
+    grid-template-areas:
+      "logo . nav"
+      "hero hero hero"
+      "t1   .  t2"
+      "blog p1 p2"
+      "blog p3 p4"
+      "footer footer footer";
+  }
+  
+  /* top row */
+  .l3-logo-area { grid-area: logo; }
+  .l3-nav-area  { grid-area: nav; display: flex; justify-content: center; }
+  
+  /* hero */
+  .layout3 .hero { grid-area: hero; min-height: 300px; }
+  
+  /* small titles */
+  .layout3 .t1 { grid-area: t1; min-height: 44px; }
+  .layout3 .t2 { grid-area: t2; min-height: 44px; }
+  
+  /* blog column (two stacked boxes on the left) */
+  .layout3 .blog  { grid-area: blog; }
+  .layout3 .blog1 { grid-row: 4; min-height: 190px; }
+  .layout3 .blog2 { grid-row: 5; min-height: 190px; }
+  
+  /* right 2×2 featured products */
+  .layout3 .p1 { grid-area: p1; min-height: 190px; }
+  .layout3 .p2 { grid-area: p2; min-height: 190px; }
+  .layout3 .p3 { grid-area: p3; min-height: 190px; }
+  .layout3 .p4 { grid-area: p4; min-height: 190px; }
+  
+  /* footer */
+  .l3-footer { grid-area: footer; min-height: 46px; display: grid; place-items: center; }
+  
